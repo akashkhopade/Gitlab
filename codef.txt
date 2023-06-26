@@ -1,0 +1,64 @@
+using System;
+using System.IO;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
+public partial class ExportToPDF : Page
+{
+    protected void ExportButton_Click(object sender, EventArgs e)
+    {
+        // Create a new PDF document
+        Document document = new Document();
+        MemoryStream memoryStream = new MemoryStream();
+        PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
+        document.Open();
+
+        // Add a new paragraph to the document
+        document.Add(new Paragraph("GridView Exported to PDF"));
+
+        // Create a table and set its properties
+        PdfPTable table = new PdfPTable(GridView1.Columns.Count);
+        table.WidthPercentage = 100;
+
+        // Set cell padding and background color for header cells
+        table.DefaultCell.Padding = 3;
+        table.DefaultCell.BackgroundColor = new BaseColor(240, 240, 240);
+
+        // Add header row to the table
+        for (int i = 0; i < GridView1.Columns.Count; i++)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(GridView1.Columns[i].HeaderText));
+            cell.BackgroundColor = new BaseColor(190, 190, 190);
+            table.AddCell(cell);
+        }
+
+        // Set cell padding for data cells
+        table.DefaultCell.Padding = 2;
+
+        // Add data rows to the table
+        for (int i = 0; i < GridView1.Rows.Count; i++)
+        {
+            for (int j = 0; j < GridView1.Columns.Count; j++)
+            {
+                table.AddCell(new Phrase(GridView1.Rows[i].Cells[j].Text));
+            }
+        }
+
+        // Add the table to the document
+        document.Add(table);
+
+        // Close the document
+        document.Close();
+
+        // Clear the response and set the appropriate headers
+        Response.Clear();
+        Response.ContentType = "application/pdf";
+        Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.pdf");
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.BinaryWrite(memoryStream.ToArray());
+        Response.End();
+    }
+}
