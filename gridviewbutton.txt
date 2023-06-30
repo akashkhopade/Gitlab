@@ -1,0 +1,126 @@
+<asp:GridView ID="gvw_emp" runat="server" AutoGenerateColumns="False">
+   <Columns>
+      <asp:BoundField DataField="emp_id_pk" HeaderText="Employee ID" />
+      <asp:BoundField DataField="emp_fullname" HeaderText="Full Name" />
+      <asp:BoundField DataField="emp_designation" HeaderText="Designation"/>
+      
+      <%-- Adding button to gridview --%>
+      <asp:TemplateField HeaderText="Employee Profile" >
+          <ItemTemplate>
+            <asp:Button ID="Btn1" runat="server" 
+                 Text="Show Profile" CommandArgument="Button1"
+                 OnClick="Btn1_Click" />
+          </ItemTemplate>
+       </asp:TemplateField>
+
+    </Columns>
+ </asp:GridView>
+
+
+protected void Btn1_Click(object sender, EventArgs e)
+{
+     GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
+     int index = gvRow.RowIndex;
+
+     //Fetches the employee id corresponding to the row index
+     string emp_id = gvw_emp.Rows[index].Cells[0].Text; 
+     
+     pnl_profile.Visible = true;
+  
+     command.CommandText ="select * from EmpDetails,EmpProfile
+     where EmpDetails.emp_id_pk = EmpProfile.emp_id_pk
+     and EmpProfile.emp_id_pk = '" + emp_id + "'";
+
+    //Binding the Detail View 
+     adapter.Fill(dtset, "rowtable");
+     dv_profile.DataSource = dtset.Tables["rowtable"];
+     dv_profile.DataBind();
+             .
+             .
+             .
+        }
+    }
+
+
+
+ <Columns>
+       <asp:BoundField DataField="emp_id_pk" HeaderText="Employee ID" />
+       <asp:BoundField DataField="emp_fullname" HeaderText="Full Name" />
+       <asp:BoundField DataField="emp_designation" HeaderText="Designation" />
+       <asp:ButtonField ButtonType="Button" 
+            CommandName="ShowProfile" Text="Show Profile" 
+            CausesValidation="false" />
+     </Columns>
+ </asp:GridView>
+
+
+
+
+
+
+protected void gvw_emp_OnRowCommand(object sender,
+           System.Web.UI.WebControls.GridViewCommandEventArgs e)
+{
+
+     string currentCommand = e.CommandName;
+     int index = Int32.Parse(e.CommandArgument.ToString());
+                  	
+     //The rest of the code follows......
+		
+}
+
+
+
+
+
+public partial class Form1 : Form
+{
+    public Form1()
+    {
+        InitializeComponent();
+    }
+
+    DataSet ds = new DataSet();
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt.TableName = "MaterialsTransactions";
+        for (int i = 0; i < 5; i++)
+        {
+            dt.Columns.Add(i.ToString());
+        }
+
+        dt.Rows.Add("1", "2", "3", "4", "5");
+        dt.Rows.Add("a", "b", "c", "d", "e");
+
+        ds.Tables.Add(dt);
+        MaterialDG.DataSource = ds;
+        MaterialDG.DataMember = "MaterialsTransactions";
+        MaterialDG.RightToLeft = RightToLeft.Yes;
+        MaterialDG.AllowUserToAddRows = false;
+        MaterialDG.Columns[0].HeaderCell.Value = "Employee Record";
+        MaterialDG.Columns[1].HeaderText = "Name";
+        MaterialDG.Columns[2].HeaderText = "Desig";
+        MaterialDG.Columns[3].HeaderText = "Payment";
+        MaterialDG.Columns[4].HeaderText = "Detail";
+
+
+       
+        DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
+        buttons.HeaderText = "Submit";
+        buttons.Text = "Reset";
+        buttons.UseColumnTextForButtonValue = true;
+        buttons.AutoSizeMode =
+            DataGridViewAutoSizeColumnMode.AllCells;
+        buttons.FlatStyle = FlatStyle.Standard;
+        buttons.CellTemplate.Style.BackColor = Color.Honeydew;
+        buttons.DisplayIndex = 5;
+        MaterialDG.Columns.Add(buttons);
+
+    }
+}
+
+
+
+
+https://www.dotnetspider.com/resources/44230-How-add-Buttons-Data-GridView-retrieve-its-row-index-OnRowCommand.aspx
