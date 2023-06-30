@@ -1,0 +1,73 @@
+protected void Page_Load(object sender, EventArgs e)
+{
+    if (!IsPostBack)
+    {
+        // Initialize the GridView
+        BindGridView();
+    }
+}
+
+protected void btnFilter_Click(object sender, EventArgs e)
+{
+    // Retrieve the filter value
+    string filterValue = "YourFilterValue"; // Replace with your own filter value
+
+    // Filter the data from the GridView based on the column data
+    FilterGridView(filterValue);
+}
+
+protected void BindGridView()
+{
+    // Retrieve data from the database and bind it to the GridView
+    DataTable dt = GetDataFromDatabase();
+    GridView1.DataSource = dt;
+    GridView1.DataBind();
+}
+
+protected void FilterGridView(string filterValue)
+{
+    // Iterate over each GridView row and filter the TemplateField data
+    foreach (GridViewRow row in GridView1.Rows)
+    {
+        Label lblID = row.FindControl("lblID") as Label;
+        Label lblName = row.FindControl("lblName") as Label;
+        Label lblAge = row.FindControl("lblAge") as Label;
+
+        // Check if the column value matches the filter value
+        if (lblName.Text == filterValue)
+        {
+            // Show the TemplateField data
+            lblID.Visible = true;
+            lblName.Visible = true;
+            lblAge.Visible = true;
+        }
+        else
+        {
+            // Hide the TemplateField data
+            lblID.Visible = false;
+            lblName.Visible = false;
+            lblAge.Visible = false;
+        }
+    }
+}
+
+protected DataTable GetDataFromDatabase()
+{
+    // Replace this with your own logic to retrieve data from the database
+    // Example: Using ADO.NET and SQL Server
+    string connectionString = "YourConnectionString";
+    string query = "SELECT ID, Name, Age FROM YourTable";
+
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+    }
+}
+
