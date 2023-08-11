@@ -1,0 +1,61 @@
+using System;
+using System.Data;
+using System.IO;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using OfficeOpenXml;
+
+public partial class GenerateExcel : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+
+    protected void GenerateExcelButton_Click(object sender, EventArgs e)
+    {
+        DateTime startDate = DateTime.Parse(StartDateTextBox.Text);
+        DateTime endDate = DateTime.Parse(EndDateTextBox.Text);
+
+        DataTable data = GetDataBetweenDates(startDate, endDate);
+
+        using (ExcelPackage excelPackage = new ExcelPackage())
+        {
+            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("DataSheet");
+
+            for (int col = 0; col < data.Columns.Count; col++)
+            {
+                worksheet.Cells[1, col + 1].Value = data.Columns[col].ColumnName;
+            }
+
+            for (int row = 0; row < data.Rows.Count; row++)
+            {
+                for (int col = 0; col < data.Columns.Count; col++)
+                {
+                    worksheet.Cells[row + 2, col + 1].Value = data.Rows[row][col];
+                }
+            }
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Data.xlsx");
+            Response.BinaryWrite(excelPackage.GetAsByteArray());
+            Response.End();
+        }
+    }
+
+    private DataTable GetDataBetweenDates(DateTime startDate, DateTime endDate)
+    {
+        // Replace this with your actual data retrieval logic
+        // Example: Query database or use other data source
+        DataTable data = new DataTable();
+        data.Columns.Add("ID", typeof(int));
+        data.Columns.Add("Name", typeof(string));
+        data.Columns.Add("Date", typeof(DateTime));
+
+        // Fill data rows based on your data source and date range
+        // Example: data.Rows.Add(1, "John Doe", DateTime.Now);
+
+        return data;
+    }
+}
