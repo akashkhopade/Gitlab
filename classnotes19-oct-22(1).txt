@@ -1,0 +1,185 @@
+Good Morning :))
+
+Signals = interrupt that one process can send to another process . 
+-this is a Linux DISTRO feature 
+- signal is a integer 
+- the signals are processed by the signal handler 
+   -there are inbuilt signal handlers
+   -we can also provide signal handlers
+- to see the signal info  man -7 signal
+- The signals SIGKILL and SIGSTOP cannot be caught, blocked, or ignored  - NON MASKABLE 
+
+- to provide our own handler we have to use a system call signal()
+
+- on prompt we can send signals to the process using kill command
+- from c code if want to send signals then we use a system call  kill()
+
+- ctrl-c sends a signal of SIGINT to the process
+________________________________________
+Process = program in execution
+
+	what is the sequence of process execution?
+		main() { ..............}
+
+Thread = it is the sequence of process execution 
+		 it is the path of execution of a process
+
+Default thread that EVERY c process MUST have = MAIN THREAD  !!!
+
+Can we have more threads other than main in a PROCESS?
+YES 
+that process is called as Multithreaded process
+
+Why we may need more threads in a process ?
+ - for simultaneous execution of TASKS in a process
+ 
+Examples--
+   process ---------threads
+	Zoom            chat,audio,video, screen sharing
+	meet
+	teams
+	
+	game ---------- player1 , player2, animation, score,
+					timer
+					
+	word            editor , spellchecker, auto save
+	mediaplayer ----audio , edit playlist 
+	IDE --------   editor , compiler , assistant 
+	
+Difference between Process and Thread 
+- thread is a part of the process
+-process creation - PCB(pid), process address space ( code, data , stack , heap) is loaded in RAM
+ thread creation --- TCB(tid) , thread shares the code data and heap with other threads , BUT the stack is newly created for each thread , every thread has exclusive stack
+
+- remaining lifecycle - ready , running, wait, terminate is same for process and thread 
+	
+How can we create more threads other than main in C on Linux DISTRO ?
+use pthread library !!!
+it is a POSIX thread library of Linux 
+
+___________________________________________
+ exec family of system calls 
+		- to run linux command from c program 
+
+fork = creates a copy of current process image 
+	  different PIDs
+		pid of parent ( current )
+		pid of child ( new )
+
+exec = replaces current process image with new process image 
+		same PID ( for current and new )
+
+---p means find command from path environment variable
+--- l  means parameters are given as list
+  execl
+  execlp 
+ 
+----v means parameters are given as array 
+  execv
+  execvp
+_____________________________________
+
+Redirection ---- output has to be sent to a file instead of console 
+	>  output will overwrite the contents of file
+	>> output will append to the contents of file 
+
+SEE OVERWRITING
+ls > myfile
+ps > myfile 
+
+SEE APPEND
+ls >> myfile
+ps >> myfile 
+
+**WASS that accept 5 names from user and show the sorted list
+
+** for floating point maths
+	 echo "3.14*2" | bc
+
+** command line argument 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+  
+  
+
+
+
+
+
+ 					
+					
+					
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

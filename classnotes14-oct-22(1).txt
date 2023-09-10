@@ -1,0 +1,181 @@
+
+Good Morning :))
+
+process , process space/address space
+system call
+
+IPC = Inter Process Communication 
+
+Two processes will communicate with each other 
+to complete an application !!!
+
+Techniques of IPC
+1. Socket programming = Two processes connect using TCP/IP protocol . each process is treated as a socket ( endpoint - IP +port)
+
+2. Signal = one process sends a signal to another process
+
+Linux DISTRO specific techniques ----
+a. Pipes
+b. Message queue
+c. Shared Memory
+d. Semaphore
+________________________
+Process address space is EXCLUSIVE for each process.
+
+1. Pipes IPC Technique =  a file acts as a pipe
+	one process gets a Write pointer to file
+	second process gets a Read pointer to file
+	
+	Unidirectional flow of bytes from process1 to process2
+	
+
+2. Message Queue IPC technique = msgget() system call will ask the kernel to create a message queue in RAM
+and provide the message queue ID
+
+both processes can read or write to the queue if they have read and write permission
+to read from queue use system call = msgrcv
+to write to queue use system call = msgsnd
+
+messages are structured - struct variables 
+_________________________________________
+
+3. Shared Memory technique = shmget() system call will request the system to get a shared buffer of some size .
+on success a shared memory identifier is created
+and both processes should have this identifier
+
+to get a pointer to the shared memory use shmat()
+to invalidate the pointer to the shared memory use shmdt() system call.
+
+bidirectional communication .
+as both processes are using pointer and have freedom to access the shared memory in any way at a time - there may be a PROBLEM of inconsistent  shared data .
+
+________________________________________
+
+Data Sharing Problem  ----- when two processes are sharing [ read and write ] same data at a time like in Shared Memory technique - there may be a problem of data inconsistency Called AS = RACE CONDITION 
+
+Process Synchronization ------------
+Solution to race conditon = MUTUAL EXCLUSION
+If process1 is using shared data - it will lock the data , then process2 cannot access the data.
+
+when process1 is finished using the shared data then it will unlock the data and process2 can use it
+
+Two CRITICAL SECTIONS are not allowed to run at a time.
+CRITICAL SECTION = code that accesses shared data
+
+Semaphore is used as a lock in MUTUAL EXCLUSION
+	MUTEX 
+	
+Semaphore is an integer data type !
+ but access to semaphore can happen only through
+ 2 atomic functions ---
+	wait
+	signal
+	
+	wait(sema)
+	{
+	   if sema > 0 
+			sema --  ; return;
+		else wait
+	}
+	
+	signal(sema)
+	  {
+		sema ++
+	  }
+	
+	2 types of semaphore -
+	1. MUTEX = binary semaphore = it has only 2 values 0 and 1 . this is used for proces
+	synchronization/ mutual exclusion
+	
+	2. Counting semaphore = it has values from 0 to n ( n to 0) = this is used as IPC technique
+________________________________________
+	
+SHELL Scripts --- 
+
+	SHELL = bash = program for CLI
+	shell has a command set !! {cd, ls, .... }
+	
+	using the command set of bash 
+	   we can write simple programs
+	      these programs are called = shell scripts
+	
+	shell script extension = .sh
+	bash interpreter is used to run this script 
+	
+	gcc -o outputfilename sourcefilename
+	gcc -o o1 hello.c
+______________________________________
+
+LAB
+1  Write a shell script to print hello world
+	use echo
+	check it on propmpt also 
+	echo = prints and adds a new line 
+	
+	use echo -n to print hello world
+	
+2.  WASS to create a variable and print it
+
+3. WASS to ask the user to enter name and print welcome name  -- use read command
+
+4. WASS to accept a folder name from user , create a folder of that name and show it 
+
+5. WASS to accept a filename from user , create a 0 kb file and show it in ls  [ use touch, ls -l]
+
+6. WASS to accept a filename and a new filename
+	rename the file with new name 
+	
+7. WASS to accept a filename from user and remove it . show with ls 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

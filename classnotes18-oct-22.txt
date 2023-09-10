@@ -1,0 +1,182 @@
+Memory management 
+	Demand Paging --- when a page that is not present in the RAM is needed then the demand is made through 
+	page fault interrupt !!!
+	
+What happens on page fault ? required page is loaded in the available free frame !!
+If no free frame is available ?
+	the existing page is replaced by demanded page !!
+	Q ?  which page is replaced ?
+    A ?   it depends on the page replacement algorithm implemented by the MMU( memory management unit)
+
+
+
+what are the different page replacement POLICIES ? 
+	a) Global Page Replacement = page of any process may be replaced - other processes are affected 
+	by the page replacement 
+		PROBLEM = THRASHING 
+	
+	b) Local Page Replacement  = page of faulting process may be replaced . This is a solution to THRASHING.Other processes are not affected by the faulting process.
+	
+what are different page replacement ALGORITHMs ?
+
+1. FIFO/FCFS = the page that is loaded first will be removed first 
+
+2. OPT = optimal page replacement = replace that page which will not be needed in the near future 
+this is theoretical as we cannot predict which page may not be needed .
+	a) LRU = Least recently used = replace that page which has oldest access time
+	b) MRU = Most recently used = replace that page which has recent accest time
+
+Page access String --- 1,2,1,3,4,2,3,2,5
+number of frames allocated to the process are = 3
+
+calculate the total number of page faults and total number of page replacements 
+using FIFO , LRU, MRU 
+_____________________
+
+Practice Page access string ---- 1,4,2,5,1,3,5,6
+calc Page fault and page replacements using FIFO, LRU ,MRU
+number of frames = 4 
+__________________________________________
+Normal = If number of frames increase then number of page faults decrease 
+
+Belady's Anomaly = In FIFO 
+	if the number of Frames increase then number of page faults tend to increase .
+	
+This anomaly is solved in OPT ( LRU )!!!
+___________________________________________
+Reentrant code = Pure code = it does not change 
+Reentrant page = the page that does not change over time or due to code 
+
+Sharing Pages  = Kernel chooses to share reentrant pages to save memory space 
+_______________________________________
+Dirty Bit  = every page is associated with a flag called as dirty bit 
+	if a page is changed then dirty bit is 1
+	kernel will check the dirty bit during page replacement and will write the page on HDD only if dirty bit is ON .
+__________________________________________
+TLB = Translation Lookaside buffer 
+	= cache  that holds the part of the page table 
+	= for quick access
+	= faster tranlation of virtual memory address to physical memory address
+	
+	= if the required page is present in TLB then TLB Hit , TLB Miss
+______________________________________________
+	
+Providing Access Permissions in Linux  ----
+		
+		permission granted to  Users 
+		
+	Group = admin , faculty, student , guest
+	
+	every group has users
+		admin = u1, u2
+		faculty = f1, f2 ,f3,f4
+		student = s1 , s2 ,s3
+		guest = g1, g2
+	
+	ex1 = is file or a folder 
+	
+	 3 level of permissions
+	 user/owner of file
+	 group of file user
+	 other users
+	
+	for ex if   user  s1 created a file gold
+	 user/owner of gold = s1
+	 group  = s2 , s3
+	 other = u1, u2, f1, f2 ,f3,f4 , g1,g2 
+	
+	the permission is for 
+	rwx = read write execute
+	
+	file = read(cat,tac,vi) , write(vi to write), execute( ./  run the file)
+	folder =read(ls) , write( cp, touch, mv, mkdir, rmdir, rm ) , execute( cd )
+_________________
+To change the permissions = chmod
+	
+	1. use + and - to add or remove permission
+		(u)rw-  (g)r-- (o)r--
+		
+		add execute permission to user 
+		  chmod u+x  rainbow
+		
+		rwxr--r--
+		add w to both group and other 
+		 chmod go+w rainbow
+	
+		rwxrw-rw-
+			remove w from all 3
+			chmod ugo-w rainbow
+			
+		r-xr--r--	
+			
+	2. use = 		
+		r-xr--r--	
+			all should have only rw permission
+			chmod ugo=rw rainbow
+	
+		rw-rw-rw-
+
+	3. octal way of using chmod 
+		_ _ _ 
+		0 0 0  0
+		0 0 1  1
+		0 1 0  2
+		0 1 1  3
+		1 0 0  4
+		1 0 1  5
+		1 1 0  6
+		1 1 1  7
+	    r w x
+		
+		give readonly permission to all 3
+		chmod 444 rainbow
+		rw to first two and read only to last 
+		chmod 664 rainbow 
+	
+		rwx to all
+		chmod 777 rainbow
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+

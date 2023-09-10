@@ -1,0 +1,137 @@
+Good morning :))
+
+which part of the kernel manages cpu scheduling?
+Low level schedular, cpu schedular
+
+disadv of SJF?
+starvation ?
+solution to starvation ? ageing
+adv of RR ? multitasking effect, low response time, no starvation
+
+TAT?
+Throughput?
+Explain preemptive priority scheduling
+ready state ?
+____________________________
+
+System calls = the methods or functions of the kernel are called using system calls.
+
+Process has a process ID.
+LAB
+**ps = command to show process status
+   = it shows the processes started in current terminal
+LAB
+** ps -e = it shows the processes in entire system
+
+**every command in linux is a process
+
+tty = ?  //process is background process not started using terminal
+
+LAB
+** run a c program  in infinite loop and 
+   see its pid using another terminal and ps -e
+   kill the process from another terminal using kill
+   
+LAB
+** Use system call to see the pid of a process 
+   copy hello.c to hello2.c
+   modify hello2.c to use the getpid system call
+   kill the process from other terminal
+   
+**Linux has every process has a parent process 
+	every pid has a parent pid [ ppid ]
+
+LAB
+ps -e -f  = option f for full details 
+OR
+ps -ef
+OR
+ps -e -o pid,ppid,cmd   = option o for specific INFO
+______________________________
+for linux program we can traceback from parent to parent to parent to 0
+
+hello2  child of bash
+bash child of ssh
+ssh  child of sshd
+sshd child of systemd
+systemd child of 0 
+__________________________________
+LAB
+** modify hello2 to show ppid using getppid system call
+
+____________________________________
+fork() system call
+
+LAB
+** write a forkex1.c 
+** copy forkex1.c as forkex2.c
+
+________________________________
+fork
+fork
+fork
+..n times 
+
+number of process created are 2 raised to n 
+_________________________________________
+
+Return type of fork --- 
+	on success 
+	  fork returns pid > 0 to parent
+	  fork returns 0  to child
+it will help to provide different TASKS to parent and child.
+
+LAB
+** write forkex3.c ( copy and change )
+		parent should print hi infinitely
+		child should print bye infinitely
+_______________________________________
+
+ORPHAN process = when the parent process ends before child process. The child is orphan process. 
+This orphan is adopted by some system process.
+
+
+waitpid() used in the parent = used to avoid zombie process
+
+ZOMBIE process = parent ends before child and does not remove process table entries / does not release resources  -- the child after termination appears as a zombie 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

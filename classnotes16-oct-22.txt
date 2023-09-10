@@ -1,0 +1,254 @@
+Good Morning :)
+
+div=`expr $n / 2`
+if [ $div -eq 0 ]
+
+OR
+
+if [ `expr $n / 2` -eq 0 ]
+
+
+-gt, -lt, -le ,-ge ,-eq, -ne  } binary arithmetic operators
+
+
+
+----------------------------------------
+Memory Management ---
+
+	Physical address , Logical,offset address
+	base address , actual address
+	
+	Physical address = it starts from 1 and goes upto size of RAM . It identifies each byte location of RAM.
+	
+	Logical/offset address = it starts from 0 goes upto size of process. Every process offset starts from 0.
+	it is internal address of process. It gives the logical address of each instruction and data .
+	
+	Base address of process = it is the physical location/address from where the process is loaded in RAM .
+	
+	Actual address of Instruction/Data = it is the physical location/address where the instruction or data of process is loaded in RAM
+		Actual = Base + Offset 
+		Actual of Instruction/Data = Base of process
+										+
+									Offset of Instruction/Data
+__________________________________________________
+
+ LTS = Long term schedular = it will decide whether to grant request to load the process in RAM  or not !!!
+ ______________________________________
+ 
+ Variable Partition Scheme 
+	the RAM is partitioned into divisions
+		the length of each division may vary 
+		the number of divisions may vary
+ 
+ Out of all available Free holes which one will be allocated to the requesting process ? 
+ Kernel will decide that based of allocation techniques
+ 
+	1. First Fit = (free-size - process-size >=0) then the first free hole matching the criteria is selected
+	
+	2. Best Fit = 
+	MIN {all free holes where freesize-processize >=0 }
+	
+	3. Worst Fit
+	MAX {all free holes where freesize-processize >=0 }
+ 
+ _______________________________________________
+ In Variable partition scheme - full process is loaded into RAM @ contiguous memory locations
+ 
+ --------------------------
+ If total free space >= required space 
+	but it is non contiguous
+	then LTS rejects loading request 
+	This problem is called as External Fragmentation 
+--------------------------------
+Solution = 
+	1. Theoretical = Compaction = move all processes to one end of RAM, we get contiguous free space
+	2. Paging 
+____________________________________________
+Actual address in variable partition  = Base + offset
+__________________________________________________	
+
+ Fixed Partition Scheme
+	length of partitions is fixed
+	number of partitions is fixed 
+    
+	RAM is predivided into equal size logical partitions 
+		called as = FRAMES 
+		For ex frame size is fixed = 4kb 
+	
+	All processes are allocated space in terms of frames !!
+	
+	if process is 8kb = 2 frames are allocated
+	If process is 9kb = 3 frames are allocated
+			however the space internal to last frame
+			is not fully used & it cant be allocated 
+			to another process- WASTED
+			PROBLEM = INTERNAL Fragmentation
+			
+	If process needs 4 frames and the frames are not contiguous then External Fragmentation may occur !!!		
+
+Actual address of instruction 
+			- find the base frame
+			- find the base address of base frame
+			base + offset
+			
+______________________________________
+variable & Fixed partition scheme = full process loaded in contiguous memory
+
+NOW  ------------
+
+segmentation & paging scheme = full process loaded in NON contiguous memory
+__________________________________________________
+
+Segmentation = based on variable partition scheme.
+
+	Process is divided into Segments!!!
+		 based on content  = all the instructions are in one segment = code segment
+		 all globals = data segment
+		 all locals = stack segment 
+		 all dynamics = heap segment
+
+segment length  are varying
+number of segments are varying
+
+To keep track of all the segments of a process
+kernel MMU =memory management unit  will maintain a data structure called as  SEGMENT TABLE  per process!!
+	
+	Segment table 
+	segmentnumber | segment base address | seg length 
+	    
+______________________________________________
+ adv --- no internal fragmentation
+		external fragmentation is REDUCED 
+		
+  disadv --- external fragmentation not totally eliminated
+		-- extra overhead to maintain segment table 
+
+_____________________________________________
+ CPU - PC  generates Segno+ seg offset 
+
+To calculate actual address of instruction 
+	- kernel finds segment base using seg num from segment table
+
+   actual  = segment base + segment offset 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

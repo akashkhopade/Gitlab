@@ -1,0 +1,308 @@
+Good Morning :))
+
+Program ? - set of instructions to OS/CPU
+
+Software ? - set of programs to solve user problems
+
+System Software - s/w that manages the system
+EX - compilers, interpreters, device drivers, loaders, linkers, operating system
+
+Application Software - s/w that solves user problems.
+Ex - notepad , MS OFFICE, VSCODE ,browsers, calc, media players , games, add.c .....
+Define OS
+OS = is a system software. It acts as an interface between  
+	a. system and end user (GUI , CLI)
+	b. system and program user ( system calls)
+
+OS manages the system as follows-
+a. process management
+b. memory management
+c. file management
+d. security 
+
+_______________________
+what is a system ?  Hardware 
+
+	I have a file ex1.c can we run this? NO
+	ex1.c --compiler-->  ex1.exe
+	
+	Where is the ex1.exe stored ? Hard Disk
+	BIT = BInary digiT
+	What is the structure of HDD ?
+	Is is a volatile or non volatile storage ?
+		non volatile storage 
+	non volatile = data is preserved even after power off.
+	Size -  >= 1 TB
+	
+	1 bit
+	8 bits = 1 byte
+	8 * 1024 bits = 1 kbytes
+	8 * 1024 * 1000 = 1mbytes
+	8 * 1024 *1000 *1000 = 1gbytes
+	8 * 1024 * 1000 * 1000 * 1000 bits
+	 = 1 terra bytes
+	 
+	access TIme is SLOW   = ranges into ms 
+	
+	   1 sec
+	   10 raised to -3 sec = 1/1000 sec = 1ms 
+10 raised  to  -6 sec 1/1000000 sec  = 1 micro sec
+10 raisd to -9 sec 1/1000000000 sec = 1 nano sec	
+
+__________________
+SSD  = solid state device = semiconductor storage
+	no moving parts = access is faster than HDD
+______________________________   
+	
+Ex1.exe (HDD) ------(loader)--------->RAM
+	
+RAM = volatile storage 
+RAM will store data in  ???? transistors and capacitors 
+size bet 1 GB  to 16GB
+
+access time is faster than HDD = ranges in micro sec
+_____________________________________
+
+program may be transferred to caches  also
+
+cache memory =  L2 cache , L1 cache 
+semiconductor memory fast access 
+L2 size > 1 MB
+L1 size > 32 KB
+___________________________________________
+
+From the L1 cache ---Data Bus----->CPU Registers
+
+
+CPU registers are fast access small storage
+size - depends on the WORD SIZE 
+
+32 bit = 4 bytes
+64 bit = 8 bytes
+
+Registers type =  
+IR = instruction register = store the instruction 
+PC = Program counter = stores the address of next instruction
+DR0 =  data register 0  
+DR1 = data register 1
+ADR0 = MAR0 
+ADR1 = MAR1
+Accumulator = accumulates the output of the ALU
+
+__________________________
+
+Who executes the instructions ? 
+	ALU = Arithmetic Logic Unit = to execute instructions using electronic circuits 
+	
+	Which instructions can be executed by the ALU?
+	   CPU instructions
+		1. A = + - / * %
+		2. L = && || !
+		3. R =  < >  <=  >= != ==
+________________________________________
+
+  add.c 
+	   printf enter 2 nums  } IO instruction
+	   scanf  %d %d &a , &b } IO instruction
+	   sum = a+b } CPU instruction
+	   printf sum } IO instruction
+
+__________________
+IO instructions are executed by the 
+IO PROCESSOR / IO COPROCESSOR /DMA
+
+DMA = direct memory access = transfer data directly between memory and IO devices not including CPU
+
+IO Devices = 
+	Input device = sends Input to RAM
+Ex = KBD , mouse , mic , scanner, joystick, touchscreen, MICR , bar code reader , card reader , camera , thumb retina scanner , MRI scanner 
+sensors 
+
+	Output device = sends variables in RAM to external user
+	monitor, printer, speaker , projector , plotter
+____________________________________________
+
+What is the definition of OS?
+What is the system ?
+____________________________________________
+Different types of operating systems -
+	1. GPOS = general purpose OS
+		windows 11, linux distro 
+		
+	2. Multiuser OS = many users can login at a time 
+			ubuntu , CentOS 
+			
+	3. Single User OS = at a time only one user can login
+			Windows 11
+	
+	4. Embedded OS = to manage embedded circuits in machines
+	5. Distributed OS = For distributed applications on a network
+	6. Network OS 
+	7. RTOS = real time OS = dead line based OS 
+	8. mobile OS 
+
+GOOGLE examples of each type !!!
+
+Network protocols to communicate between client and server
+	- telnet through putty 
+protocol = decides what will be the request and response format 
+	ex - telnet 
+		 to transfer files = ftp , sftp 
+		 to connect through urls http, https
+
+IP address = unique address or ID of a machine in a LAN 
+
+Server IP : 192.168.100.155
+_______
+
+_____________________________________
+In the lab ---
+	1. open your windows
+	2. open the putty 
+		  enter IP address
+		  change color and font size
+	3. open the terminal to centOS server 
+	4. tty = Terminal TYpe
+	5. observe the prompt = note that this is the CLI 
+	6. enter a few times - observe the prompt 
+	7. enter a command  "clear"
+
+__________________________________________
+
+Linux  DISTRO  = Linux Distribution =
+	using core kernel of linux many flavors / DISTRO are created
+	  For ex ---  Red hat , ubuntu , centOS , Kali , Debian, Suse
+			mandrake, fedora , arch linux , mandriva , mint 
+			BOSS 
+			
+	Open Source  = source code is available on GIT
+					programmers can modify it 
+					
+	GNU public license = free to use 
+	
+Windows 
+		- Proprietory = source code is not available 
+		- Licensed = purchase 
+
+_________________________________________
+
+SHELL  = CLI program 
+	default SHELL in linux  =  bash
+	we may have many shells in Linux DISTRO  = ksh, csh , tcsh
+	bourne shell , .....
+	every shell understands different commands !!!
+
+File Handling Bash commands ----------
+	Linux file system  top most folder is a SINGLE folder 
+		 /    = forward slash 
+		 
+	cd = change folders 
+	pwd = present working directory = /home/group001
+
+		/   = top folder 
+		 ---- home    = parent folder
+		         -------group001  = current folder
+
+	  current folder  =  . (dot)
+	  parent folder =  . .  (dot dot )
+	go to parent folder = cd .. 
+	cd /
+	cd ./home
+	cd ./group001
+	cd ~   ( ~ = means the login folder of the current user )
+	ls 
+	
+
+
+Lab --- 	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
