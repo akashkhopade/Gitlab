@@ -1,0 +1,594 @@
+What is full form of VCS?
+
+A.Version Configuration System
+
+B.Version Consolidated Solutions
+
+C.Version Configuration Solutions
+
+D.Version Control System
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Git is a __________
+
+A.Distributed version control system
+
+B.Centralized version control system
+
+C.Localized version control system
+
+D.All of the above
+
+Explanation
+Correct Option :A.
+HIDE ANSWER
+Which of the following is true about Centralized version control system?
+
+A.It does not rely on the central server
+
+B.It is victim to single point of failure
+
+C.It rely on the central server
+
+D.Both B & C
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Which of the following is true about Git?
+
+1. Git does not rely on the central server.
+
+2. Git require network connection only to publish your changes and take the latest changes.
+
+3. Every git checkout is a full backup of the server repository.
+
+A.Only 1 & 2
+
+B.Only 1 & 3
+
+C.Only 2 & 3
+
+D.All of the above
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+The files that can be committed are always present in git 
+
+A.working directory
+
+B.staging area
+
+C.unstaged area
+
+D.Anywhere, there is no barrier
+
+Explanation
+Correct Option :B.
+HIDE ANSWER
+Git can be used for which project?
+
+A.Java enterprise project
+
+B..Net project
+
+C.File version management
+
+D.All of the above
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Which of the following terminology is not related to git?
+
+A.staging area
+
+B.fork
+
+C.branch
+
+D.stem
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Which of the following is not true about git?
+
+A.By default Git has a master branch
+
+B.Git clone operation creates the instance of the repository.
+
+C.Pull operation copies the changes from a local repository to remote repository
+
+D.All of the above
+
+Explanation
+Correct Option :C.
+
+
+Which of the following is example of distributed version control?
+
+A.Git
+
+B.Mercurial
+
+C.SVN
+
+D.Both A & B
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Who created Git?
+
+A.Dennis Ritchie
+
+B.Linus Torvalds
+
+C.Linus Babbage
+
+D.James Gosling
+
+Explanation
+Correct Option :B.
+HIDE ANSWER
+Which of the following are the stages in which your git file can reside?
+
+A.modified
+
+B.staged
+
+C.committed
+
+D.Any of the above
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Git command that lets you get and set configuration variables that control all aspects of how Git looks and operates is
+
+A.git config
+
+B.git --version
+
+C.git init
+
+D.All of the above
+
+Explanation
+Correct Option :A.
+HIDE ANSWER
+Which of the following is correct git command to set your username during git initial setup? 
+
+A.git config --global user.name "Rajneesh"
+
+B.git config --global user "Rajneesh"
+
+C.git init config --global user.name "Rajneesh"
+
+D.git --global user.name "Rajneesh"
+
+Explanation
+Correct Option :A.
+HIDE ANSWER
+Git command to list all the settings Git can find at any point of time is
+
+A.git config
+
+B.git config --settings
+
+C.git --list
+
+D.git config --list
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+To get the comprehensive manual page (manpage) help for any of the Git commands we can use
+
+A.git help
+
+B.git --help
+
+C.man git-
+
+D.Any of the above
+
+Explanation
+Correct Option :D.
+HIDE ANSWER
+Git command that helps us initialize git repository for the project (folder) that we intend to track using version control system Git is
+
+A.git config
+
+B.git init
+
+C.git add .
+
+D.None of the above
+
+Explanation
+Correct Option :B.
+HIDE ANSWE
+
+
+Which of the following is true related to git init command?
+
+1. A .git folder (sub-directory) is created within your git project (directory) once you run the git init command
+
+2. .git is generally hidden folder.
+
+A.only 1
+
+B.only 2
+
+C.Both 1 & 2
+
+D.None of the 1 & 2
+
+Explanation
+Correct Option :C.
+HIDE ANSWER
+Which of the following is git tool?
+
+A.Git Bash
+
+B.GitK
+
+C.Git GUI
+
+D.Only A & C
+
+E.All of the above
+
+Explanation
+Correct Option :E.
+Git comes with built-in GUI tools like git bash, git-gui, and gitk
+
+HIDE ANSWER
+_________ is a version of the repository that diverges from the main working project.
+
+A.master
+
+B.branch
+
+C.fork
+
+D.clone
+
+Explanation
+Correct Option :B.
+branch is the correct answer
+
+HIDE ANSWER
+Which of the following command is used to switch between branches in a repository?
+
+A.checkout
+
+B.clone
+
+C.fetch
+
+D.pull
+
+E.rebase
+
+Explanation
+Correct Option :A.
+checkout is the correct answer
+
+HIDE ANSWER
+Which of the following command in git helps create copy of target repository?
+
+A.pull
+
+B.fetch
+
+C.clone
+
+D.tag
+
+Explanation
+Correct Option :C.
+clone is the correct answer
+
+HIDE ANSWER
+Which of the following are type of reset facility available in git?
+
+A.soft
+
+B.hard
+
+C.mixed
+
+D.all of the above
+
+Explanation
+Correct Option :D.
+soft, hard and mixed all are the correct answer
+
+HIDE ANSWER
+Which command can help you to switch branch without committing the current branch?
+
+A.fetch
+
+B.stash
+
+C.fork
+
+D.branch
+
+Explanation
+Correct Option :B.
+git stash is the correct answer
+
+HIDE ANSWER
+The act of transferring commits from your local repository to a remote repository is known as ___________
+
+A.push
+
+B.pull
+
+C.clone
+
+D.rebase
+
+Explanation
+Correct Option :A.
+push is the correct answer
+
+HIDE ANSWER
+
+
+The reference to the remote repository from where a project was initially cloned is called __________
+
+A.origin
+
+B.tag
+
+C.head
+
+D.index
+
+Explanation
+Correct Option :A.
+origin is the correct answer
+
+HIDE ANSWER
+What represents the last commit in the current checkout branch in git?
+
+A.head
+
+B.index
+
+C.master
+
+D.origin
+
+Explanation
+Correct Option :A.
+head is the correct answer
+
+HIDE ANSWER
+Tags in git can be
+
+A.light-weighted tag
+
+B.heavy-weighted tag
+
+C.annotated tag
+
+D.Only A & C
+
+E.all of the above
+
+Explanation
+Correct Option :D.
+light-weighted & annotated tag is the correct answer
+
+HIDE ANSWER
+Which is the correct git command to add files to the repository?
+
+A.git add
+
+B.git add fileName
+
+C.both of the above
+
+D.none of the above
+
+Explanation
+Correct Option :B.
+git add fileName is the correct answer. You need to provide filename that needs to be added to repository.
+
+HIDE ANSWER
+Which of the following is the correct git command to commit changes with proper message?
+
+A.git commit
+
+B.git commit "message"
+
+C.git commit -m "message"
+
+D.git commit -a "message"
+
+Explanation
+Correct Option :C.
+git commit -m "message" is the correct answer.
+
+HIDE ANSWER
+Which of the following git command helps to add multiple changes at the same time?
+
+A.git add -all
+
+B.git add .
+
+C.git add . "fileName"
+
+D.git add ...
+
+Explanation
+Correct Option :B.
+git add . is the correct answer
+
+HIDE ANSWER
+What does the below git command indicates?
+
+git add *.java
+
+A.The above command will stage all the Java source files
+
+B.The above command will commit all the Java files
+
+C.The above command will exclude all the Java files while staging
+
+D.It will give error - "invalid command"
+
+Explanation
+Correct Option :A.
+The above command will stage all the Java source files is the correct answer
+
+HIDE ANSWER
+Which git command can help to stash a change with a message?
+
+A.git stash save "message"
+
+B.git stash -m "message"
+
+C.git stash save -m "message"
+
+D.git stash "message"
+
+Explanation
+Correct Option :A.
+git stash save "message" is the correct answer
+
+Which of the following git command can be used to check the stored stashes?
+
+A.git stash list
+
+B.git stash
+
+C.git stash set
+
+D.git stash map
+
+E.All of the above
+
+Explanation
+Correct Option :A.
+git stash list is the correct answer
+
+HIDE ANSWER
+Which of the following option is not valid with git stash command?
+
+A.git stash list
+
+B.git stash changes
+
+C.git stash list pop
+
+D.git stash list push
+
+E.git stash list clear
+
+Explanation
+Correct Option :D.
+git stash list push is the correct answer
+
+HIDE ANSWER
+Which of the following statement is true about git ignore file?
+
+A.The .gitignore file contains all the formats and files that should be ignored while commit
+
+B.We can create multiple ignore files in a different directory.
+
+C.Both of the above
+
+D.None of the above
+
+Explanation
+Correct Option :C.
+Both of the above is the correct answer
+
+HIDE ANSWER
+Which of the following will help you create a git repository?
+
+A.create your local project and execute init command on that project path
+
+B.clone remote repository
+
+C.both of the above
+
+D.none of the above
+
+Explanation
+Correct Option :C.
+both of the statements are correct
+
+HIDE ANSWER
+Which command helps us to see the tracked, untracked files and changes but does not show any commit records?
+
+A.git status
+
+B.git diff
+
+C.git log
+
+D.Both A & C
+
+Explanation
+Correct Option :A.
+git status is the correct answer
+
+HIDE ANSWER
+Git log command contains following data
+
+A.commit hash
+
+B.commit date metadata
+
+C.commit author metadata
+
+D.Only B & C
+
+E.All of the above
+
+Explanation
+Correct Option :E.
+All are the correct answer
+
+HIDE ANSWER
+git log --oneline command will display
+
+A.one commit per line
+
+B.the first seven characters of the SHA
+
+C.the commit message
+
+D.author and commit timestamp metadata
+
+E.Only A, B & C
+
+Explanation
+Correct Option :E.
+Only A, B & C are correct answer
+
+HIDE ANSWER
+git command which displays the files that have been modified is
+
+A.git log --patch
+
+B.git log -p
+
+C.None of the above
+
+D.Both of the above
+
+Explanation
+Correct Option :D.
+both commands are correct answer
