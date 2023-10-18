@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+
+namespace YourNamespace
+{
+    public partial class TransactionPage : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                // Sample data (replace with your actual transaction data)
+                List<TransactionData> transactions = new List<TransactionData>
+                {
+                    new TransactionData { TransactionType = "Sale", Count = 50 },
+                    new TransactionData { TransactionType = "Refund", Count = 10 },
+                    new TransactionData { TransactionType = "Transfer", Count = 25 }
+                };
+
+                TransactionRepeater.DataSource = transactions;
+                TransactionRepeater.DataBind();
+            }
+        }
+    }
+
+    public class TransactionData
+    {
+        public string TransactionType { get; set; }
+        public int Count { get; set; }
+    }
+}
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TransactionPage.aspx.cs" Inherits="YourNamespace.TransactionPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Transaction Counts</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table border="1">
+                <tr>
+                    <th>Transaction Type</th>
+                    <th>Count</th>
+                </tr>
+                <asp:Repeater runat="server" ID="TransactionRepeater">
+                    <ItemTemplate>
+                        <tr>
+                            <td><%# Eval("TransactionType") %></td>
+                            <td><%# Eval("Count") %></td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
